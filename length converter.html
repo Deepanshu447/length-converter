@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: rgb(255, 255, 255);
+    }
+    .outerdiv {
+        height: 59px;
+        width: 520px;
+        margin: auto;
+        display: flex;
+
+    }
+
+    input {
+        height: 50px;
+        width: 250px;
+        background-color: rgb(255, 255, 255);
+        font-size: 30px;
+        border-radius: 9px;
+        margin: 0;
+        color: rgb(0, 0, 0);
+    }
+
+    .dropdown {
+        height: 30px;
+        width: 250px;
+        margin: 2px;
+        color: white;
+        background-color: black;
+        border: 1px solid rgb(255, 255, 255);
+
+    }
+
+    .container2 {
+        height: 40px;
+        width: 510px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+
+
+    }
+
+    /* body {
+        background-color: black;
+    } */
+
+    .box {
+        border: 5px solid rgb(0, 0, 0);
+        height: 170px;
+        width: 530px;
+        background-color: rgb(145, 145, 145);
+        margin: auto;
+    }
+</style>
+
+<body>
+    <center><h1>LENGTH CONVERTER</h1></center>
+
+    <div class="box" id="boxi">
+        <div class="outerdiv">
+            <div class="divi" id="divo1">
+                <input type="number" id="value1" placeholder="input" oninput="result1()">
+            </div>
+            <div class="divi" id="divo2">
+
+                <input type="number" id="value2" placeholder="result" oninput="result2()">
+
+            </div>
+        </div>
+
+        <!-- select tag start from here z2 -->
+
+        <div class="container2">
+            <select id="range" class="dropdown" onchange="result2()">
+                <option value="milimeter">milimeter</option>
+                <option value="centimeter">centimeter</option>
+                <option value="meter">meter</option>
+                <option value="kilometer">kilometer</option>
+
+            </select>
+            <select id="range2" class="dropdown" onchange="result1()">
+                <option value="milimeter">milimeter</option>
+                <option value="centimeter">centimeter</option>
+                <option value="meter">meter</option>
+                <option value="kilometer">kilometer</option>
+
+            </select>
+
+        </div>
+    </div>
+    <script>
+        function result1() {
+            let value1 = document.getElementById('value1');
+            let value2 = document.getElementById('value2');
+            let range = document.getElementById('range');
+            let range2 = document.getElementById('range2');
+
+            if (range.value == 'milimeter' && range2.value == 'milimeter') {
+                value2.value = value1.value;
+            }
+            else if (range.value == 'milimeter' && range2.value == 'meter') {
+                value2.value = (value1.value)/1000;
+            }
+            else if (range.value == 'milimeter' && range2.value == 'kilometer') {
+                value2.value = (value1.value)/1000000;
+            }
+            else if (range.value == "milimeter" &&  range2.value == "centimeter"){
+                value2.value = (value1.value)/10;
+            }
+
+            if (range.value == 'centimeter' && range2.value == 'centimeter') {
+                value2.value = value1.value;
+            }
+            else if (range.value == 'centimeter' && range2.value == 'meter') {
+                value2.value = (value1.value) / 100;
+            }
+            else if (range.value == 'centimeter' && range2.value == 'kilometer') {
+                value2.value = (value1.value) / 100000;
+            }
+            else if (range.value == "centimeter" &&  range2.value == "milimeter"){
+                value2.value = (value1.value)*10;
+            }
+
+
+             if (range.value == 'meter' && range2.value == 'centimeter') {
+                value2.value = (value1.value) * 100;
+
+            } else if (range.value == 'meter' && range2.value == 'meter') {
+                value2.value = (value1.value);
+
+            } else if (range.value == 'meter' && range2.value == 'kilometer') {
+                value2.value = (value1.value) / 1000;
+
+            }
+            else if (range.value == "meter" &&  range2.value == "milimeter"){
+                value2.value = (value1.value)*1000;
+            }
+
+
+             if (range.value == 'kilometer' && range2.value == 'centimeter') {
+                value2.value = (value1.value) * 100000;
+
+            } else if (range.value == 'kilometer' && range2.value == 'meter') {
+                value2.value = (value1.value) * 1000;
+
+            } else if (range.value == 'kilometer' && range2.value == 'kilometer') {
+                value2.value = (value1.value);
+
+            }
+            else if (range.value == "kilometer" &&  range2.value == "milimeter"){
+                value2.value = (value1.value)*1000000;
+            }
+        }
+
+        function result2() {
+            let value1 = document.getElementById('value1');
+            let value2 = document.getElementById('value2');
+            let range = document.getElementById('range');
+            let range2 = document.getElementById('range2');
+
+            if (range.value == 'centimeter' && range2.value == 'centimeter') {
+                value1.value = (value2.value);
+            }
+            else if (range.value == 'centimeter' && range2.value == 'meter') {
+                value1.value = (value2.value) * 100;
+            }
+            else if (range.value == 'centimeter' && range2.value == 'kilometer') {
+                value1.value = (value2.value) * 100000;
+
+            }
+            else if (range.value == "centimeter" &&  range.value == "milimeter"){
+                value1.value = (value2.value)/10;
+            }
+
+
+             if (range.value == 'meter' && range2.value == 'centimeter') {
+                value1.value = (value2.value) / 100;
+
+            } else if (range.value == 'meter' && range2.value == 'meter') {
+                value1.value = (value2.value);
+
+            } else if (range.value == 'meter' && range2.value == 'kilometer') {
+                value1.value = (value2.value) * 1000;
+
+            }
+            else if (range.value == 'meter' && range2.value == 'milimeter') {
+                value1.value = (value2.value)/ 1000;
+
+            }
+
+
+            
+         if (range.value == 'kilometer' && range2.value == 'centimeter') {
+                value1.value = (value2.value) / 100000;
+
+            } else if (range.value == 'kilometer' && range2.value == 'meter') {
+                value1.value = (value2.value) / 1000;
+
+            } else if (range.value == 'kilometer' && range2.value == 'kilometer') {
+                value1.value = (value2.value);
+            }
+            else if (range.value == 'kilometer' && range2.value == 'milimeter') {
+                value1.value = (value2.value)/1000000;
+            }
+
+            if (range.value == 'milimeter' && range2.value == 'milimeter') {
+                value1.value = value2.value;
+            }
+            else if (range.value == 'milimeter' && range2.value == 'meter') {
+                value1.value = (value2.value)*1000;
+            }
+            else if (range.value == 'milimeter' && range2.value == 'kilometer') {
+                value1.value = (value2.value)*1000000;
+            }
+            else if (range.value == "milimeter" &&  range2.value == "centimeter"){
+                value1.value = (value2.value)*10;
+            }
+
+
+
+        }
+
+        // document.addEventListener('click', function (e) {
+        //     boxi.style.setProperty('top', e.clientY + 'px');
+        //     boxi.style.setProperty('left', e.clientX + 'px');   
+        // });
+
+        
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
